@@ -5,7 +5,7 @@
 .hero {
   position: relative;
   color: var(--paper);
-  padding: clamp(4rem, 9vw, 7rem) 0 0;
+  padding: clamp(2.5rem, 7vw, 7rem) 0 0;
   overflow: hidden;
   isolation: isolate;
   background: var(--ink);
@@ -57,13 +57,13 @@
   grid-template-columns: 1.4fr 1fr;
   gap: 4rem;
   position: relative;
-  padding-bottom: 5rem;
+  padding-bottom: clamp(2.5rem, 6vw, 5rem);
 }
 
 .heroCopy {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: clamp(1rem, 2.5vw, 1.6rem);
 }
 
 .heroH1 {
@@ -83,17 +83,25 @@
 .heroActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
 }
 
 .heroFacts {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem 2rem;
-  margin-top: 0.75rem;
+  gap: 0.6rem 1.75rem;
+  margin-top: 0.25rem;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 520px) {
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .heroActions > a { width: 100%; }
 }
 
 .heroFacts li {
@@ -110,13 +118,13 @@
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 4px;
-  padding: 2rem;
+  padding: clamp(1.25rem, 3.5vw, 2rem);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
   backdrop-filter: blur(6px);
   align-self: start;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .heroCardTop {
@@ -138,7 +146,7 @@
   margin: 0;
   color: var(--paper);
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: clamp(1.05rem, 2.6vw, 1.25rem);
   line-height: 1.4;
   font-style: italic;
 }
@@ -180,7 +188,7 @@
 
 .heroCardPhone strong {
   font-family: var(--font-serif);
-  font-size: 1.9rem;
+  font-size: clamp(1.5rem, 4.5vw, 1.9rem);
   font-weight: 500;
 }
 
@@ -204,9 +212,10 @@
   align-items: center;
   gap: 0.75rem;
   font-family: var(--font-serif);
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2.8vw, 1.3rem);
   font-style: italic;
   color: rgba(255, 255, 255, 0.55);
+  flex-shrink: 0;
 }
 
 .heroMarqueeTrack svg {
@@ -221,8 +230,7 @@
 @media (max-width: 900px) {
   .heroGrid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding-bottom: 3.5rem;
+    gap: 2rem;
   }
 }
 
@@ -235,7 +243,7 @@
   flex-direction: column;
   gap: 1rem;
   max-width: 48rem;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
 }
 
 /* ———————————————————————————————————————————— */
@@ -278,7 +286,7 @@
 }
 
 .pillarBody {
-  padding: 1.5rem 1.75rem 2rem;
+  padding: clamp(1.25rem, 3vw, 1.5rem) clamp(1.25rem, 3vw, 1.75rem) clamp(1.5rem, 3vw, 2rem);
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
@@ -341,7 +349,11 @@
 }
 
 @media (max-width: 900px) {
-  .pillars { grid-template-columns: 1fr; }
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .pillarImg { aspect-ratio: 16 / 9; }
 }
 
 /* ———————————————————————————————————————————— */
@@ -351,7 +363,7 @@
 .why {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: start;
 }
 
@@ -391,13 +403,20 @@
 .areaWrap {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 4rem;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
 }
 
 .areaImg {
   aspect-ratio: 3 / 4;
   max-height: 560px;
+}
+
+@media (max-width: 900px) {
+  .areaImg {
+    aspect-ratio: 16 / 10;
+    max-height: 300px;
+  }
 }
 
 .areaCopy {
@@ -409,13 +428,17 @@
 
 .areaGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 0.6rem 1rem;
-  padding: 1.75rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
   background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: 2px;
   width: 100%;
+}
+
+@media (max-width: 480px) {
+  .areaGrid { grid-template-columns: 1fr 1fr; }
 }
 
 .areaGrid li {
@@ -441,7 +464,7 @@
 
 .quote {
   margin: 0;
-  padding: 3rem;
+  padding: clamp(1.75rem, 5vw, 3rem);
   background: var(--paper-2);
   border-left: 3px solid var(--gold);
   border-radius: 0 2px 2px 0;
@@ -458,8 +481,8 @@
 .quote blockquote {
   margin: 0 0 1.25rem;
   font-family: var(--font-serif);
-  font-size: 1.55rem;
-  line-height: 1.35;
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  line-height: 1.4;
   color: var(--ink);
   font-style: italic;
 }
@@ -501,7 +524,7 @@
 .hiring {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  gap: 3rem;
+  gap: 2.5rem;
   align-items: end;
 }
 
@@ -509,15 +532,15 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
-.hiringActions > .btn {
+.hiringActions > a {
   width: 100%;
 }
 
 @media (max-width: 900px) {
-  .hiring { grid-template-columns: 1fr; }
+  .hiring { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
 /* ———————————————————————————————————————————— */
@@ -551,9 +574,10 @@
   cursor: pointer;
   list-style: none;
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: clamp(1.05rem, 2.6vw, 1.2rem);
   color: var(--ink);
   font-weight: 500;
+  line-height: 1.35;
 }
 
 .faqItem summary::-webkit-details-marker {
@@ -603,4 +627,13 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: center;
+}
+
+@media (max-width: 520px) {
+  .finalCtaActions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .finalCtaActions > a { width: 100%; }
 }

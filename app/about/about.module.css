@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   color: var(--paper);
-  padding: clamp(5rem, 11vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+  padding: clamp(3rem, 9vw, 9rem) 0 clamp(2.5rem, 6vw, 7rem);
   overflow: hidden;
   isolation: isolate;
   background: var(--ink);
@@ -35,7 +35,7 @@
 .heroCopy {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
   max-width: 760px;
 }
 
@@ -48,12 +48,16 @@
 .story {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 4rem;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: start;
 }
 
 .storyImg {
   aspect-ratio: 4 / 5;
+}
+
+@media (max-width: 900px) {
+  .storyImg { aspect-ratio: 16 / 10; max-height: 320px; }
 }
 
 .storyBody {
@@ -242,4 +246,9 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: center;
+}
+
+@media (max-width: 520px) {
+  .ctaActions { display: flex; flex-direction: column; width: 100%; }
+  .ctaActions > a { width: 100%; }
 }

@@ -2,7 +2,7 @@
 .hero {
   position: relative;
   color: var(--paper);
-  padding: clamp(5rem, 11vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+  padding: clamp(3rem, 9vw, 9rem) 0 clamp(2.5rem, 6vw, 7rem);
   overflow: hidden;
   isolation: isolate;
   background: var(--ink);
@@ -36,7 +36,7 @@
 .heroCopy {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
   max-width: 780px;
 }
 
@@ -67,14 +67,19 @@
 .heroCta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.6rem;
+}
+
+@media (max-width: 520px) {
+  .heroCta { flex-direction: column; width: 100%; }
+  .heroCta > a { width: 100%; }
 }
 
 /* ———— detail ———— */
 .detail {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 3.5rem;
+  gap: clamp(2rem, 5vw, 3.5rem);
   align-items: start;
 }
 
@@ -123,22 +128,29 @@
 .detailActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.6rem;
   margin-top: 1.25rem;
+}
+
+@media (max-width: 520px) {
+  .detailActions { flex-direction: column; width: 100%; }
+  .detailActions > a { width: 100%; }
 }
 
 /* sidebar */
 .sidebar {
   background: var(--paper-2);
   border: 1px solid var(--rule);
-  padding: 2rem;
+  padding: clamp(1.5rem, 3.5vw, 2rem);
   border-radius: 2px;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
   position: sticky;
-  top: 140px;
+  top: 90px;
 }
+
+@media (min-width: 901px) { .sidebar { top: 110px; } }
 
 .sidebarTitle {
   display: inline-flex;
@@ -216,9 +228,10 @@
   cursor: pointer;
   list-style: none;
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: clamp(1.05rem, 2.6vw, 1.2rem);
   color: var(--ink);
   font-weight: 500;
+  line-height: 1.35;
 }
 
 .faqItem summary::-webkit-details-marker { display: none; }
@@ -251,7 +264,7 @@
 .related {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .relatedCard {

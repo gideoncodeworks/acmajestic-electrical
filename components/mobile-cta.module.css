@@ -45,6 +45,4 @@
 
 @media (max-width: 760px) {
   .bar { display: flex; }
-  /* add bottom padding to body so last section isn't covered */
-  :global(body) { padding-bottom: 72px; }
 }
