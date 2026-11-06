@@ -1,0 +1,50 @@
+.bar {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  padding: 0.6rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom));
+  background: rgba(10, 6, 18, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 0.5rem;
+}
+
+.call,
+.book {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  min-height: 48px;
+}
+
+.call {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.call:active { background: rgba(255, 255, 255, 0.08); }
+
+.book {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.book:active { background: var(--gold-soft); }
+
+@media (max-width: 760px) {
+  .bar { display: flex; }
+  /* add bottom padding to body so last section isn't covered */
+  :global(body) { padding-bottom: 72px; }
+}

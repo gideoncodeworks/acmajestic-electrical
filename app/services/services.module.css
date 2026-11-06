@@ -1,0 +1,244 @@
+/* ———— page hero (reused pattern across inner pages) ———— */
+.hero {
+  position: relative;
+  color: var(--paper);
+  padding: clamp(5rem, 11vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink);
+}
+
+.heroImg {
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.3;
+  animation: heroPan 32s ease-in-out infinite alternate;
+}
+
+@keyframes heroPan {
+  from { transform: scale(1.04) translate(0, 0); }
+  to   { transform: scale(1.1) translate(-2%, -1%); }
+}
+
+.heroDim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 500px at 15% 25%, rgba(91, 44, 145, 0.55), transparent 60%),
+    linear-gradient(180deg, rgba(10, 6, 18, 0.7) 0%, rgba(10, 6, 18, 0.92) 100%);
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 820px;
+}
+
+.heroCopy .display em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.heroCta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroImg { animation: none; }
+}
+
+/* ———— pillar sticky nav ———— */
+.pillarNavBar {
+  position: sticky;
+  top: 72px;
+  z-index: 20;
+  background: rgba(251, 249, 246, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.pillarNav {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pillarNav::-webkit-scrollbar { display: none; }
+
+.pillarNavLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.pillarNavLink:hover {
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.pillarNavLink svg {
+  color: var(--purple);
+}
+
+/* ———— per-pillar header ———— */
+.pillarHead {
+  max-width: 54rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.pillarHead .h2 em {
+  color: var(--purple);
+  font-style: italic;
+}
+
+/* ———— per-service row (alternating) ———— */
+.serviceList {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.serviceRow {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.serviceRow.reverse {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.serviceRow.reverse .serviceImg {
+  order: 2;
+}
+
+.serviceImg {
+  display: block;
+  cursor: pointer;
+}
+
+.serviceImg .frame {
+  aspect-ratio: 4 / 3;
+}
+
+.serviceImg img {
+  transition: transform 1000ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.serviceImg:hover img {
+  transform: scale(1.03);
+}
+
+.serviceBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.serviceTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--purple);
+}
+
+.serviceBody h3 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-family: var(--font-serif);
+  line-height: 1.15;
+}
+
+.serviceBody h3 a {
+  background: linear-gradient(currentColor, currentColor) no-repeat left bottom / 0 1px;
+  transition: background-size 220ms ease, color 180ms ease;
+}
+
+.serviceBody h3 a:hover {
+  color: var(--purple);
+  background-size: 100% 1px;
+}
+
+.serviceBody p {
+  color: var(--mute-strong);
+}
+
+.serviceBullets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.serviceBullets li {
+  display: inline-flex;
+  align-items: start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--mute-strong);
+}
+
+.serviceBullets svg {
+  color: var(--purple);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .serviceRow,
+  .serviceRow.reverse {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .serviceRow.reverse .serviceImg {
+    order: initial;
+  }
+  .pillarNavBar { top: 72px; }
+}
+
+/* ———— final CTA ———— */
+.finalCta {
+  background: var(--purple);
+  color: #fff;
+  text-align: center;
+}
+
+.finalCta .display {
+  color: #fff;
+  margin: 0 auto 2rem;
+  max-width: 20ch;
+}
+
+.finalCta .display em {
+  color: var(--gold);
+}
+
+.finalCtaActions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}

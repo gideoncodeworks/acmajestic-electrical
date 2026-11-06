@@ -1,0 +1,159 @@
+.hero {
+  position: relative;
+  color: var(--paper);
+  padding: clamp(5rem, 11vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink);
+}
+
+.heroImg {
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.3;
+  animation: heroPan 32s ease-in-out infinite alternate;
+}
+
+@keyframes heroPan {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.12) translate(-2%, -1%); }
+}
+
+.heroDim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 500px at 15% 25%, rgba(91, 44, 145, 0.5), transparent 60%),
+    linear-gradient(180deg, rgba(10, 6, 18, 0.72) 0%, rgba(10, 6, 18, 0.95) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroImg { animation: none; }
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 820px;
+}
+
+.heroCopy em { color: var(--gold); font-style: italic; }
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* shared section head */
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  max-width: 50rem;
+}
+
+.head em { color: var(--purple); font-style: italic; }
+
+/* why */
+.why {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.whyCard {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  padding: 1.75rem;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.whyIcon {
+  color: var(--purple);
+  margin-bottom: 0.25rem;
+}
+
+.whyH {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.whyCard p {
+  color: var(--mute-strong);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) { .why { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .why { grid-template-columns: 1fr; } }
+
+/* roles */
+.roles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.roleCard {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 2rem;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 180ms ease, transform 180ms ease;
+  align-items: flex-start;
+}
+
+.roleCard:hover {
+  border-color: var(--purple);
+  transform: translateY(-2px);
+}
+
+.roleCard h3 {
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+
+.roleCard p {
+  color: var(--mute-strong);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.roleCard ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.roleCard ul li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--mute-strong);
+}
+
+.roleCard ul svg { color: var(--purple); }
+
+@media (max-width: 900px) { .roles { grid-template-columns: 1fr; } }
+
+/* cta */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}

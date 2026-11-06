@@ -1,0 +1,144 @@
+.nav {
+  position: sticky;
+  top: 0;
+  background: rgba(251, 249, 246, 0.92);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--rule);
+  z-index: 100;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 72px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.desktop {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.link {
+  position: relative;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: color 180ms ease;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--purple);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms ease;
+}
+
+.link:hover,
+.active {
+  color: var(--purple);
+}
+
+.active::after,
+.link:hover::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.phone:hover {
+  color: var(--purple);
+}
+
+.book {
+  padding: 0.75rem 1.15rem;
+  font-size: 0.82rem;
+}
+
+.toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.4rem;
+  color: var(--ink);
+}
+
+@media (max-width: 980px) {
+  .desktop,
+  .phone,
+  .book {
+    display: none;
+  }
+
+  .toggle {
+    display: inline-flex;
+  }
+}
+
+.sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.25rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sheetLink {
+  padding: 0.9rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+.sheetActive {
+  color: var(--purple);
+}
+
+.sheetActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.sheetActions > a {
+  width: 100%;
+}
